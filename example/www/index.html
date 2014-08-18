@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>socketify-example</title>
+	<title>Socketify Example</title>
 </head>
 <body>
 	<h1>Socketify Example</h1>
-	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
-	<script type="text/javascript" src="js/socketify.js"></script>
-
 	<h2>Message Stack</h2>
+	<p>The messages are persisted on the server for the duration of the session</p>
 	<div>
 		<input type="text" id="msg">
 		<button onclick="send()">set</button>
 	</div>
 	<div id="messages"></div>
-
 	<h2>Redis</h2>
+	<p>The value is persisted in the redis database</p>
 	<div>
 		<button onclick="gethash('myhash','mykey')">get</button>
 		<span id="myresult"></span>
@@ -24,12 +22,15 @@
 		<button onclick="sethash('myhash','mykey')">set</button>
 		<input type="text" id="inp">
 	</div>
+
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/socketify.js"></script>
 	<script type="text/javascript">
 		
 		var s1 = Socketify('/example', io).socket;
 
 		s1.on('connect', function() {
-			s1.x('mesasge', null, function(err, messages){
+			s1.x('message', null, function(err, messages){
 				console.log(messages);
 				document.getElementById('messages').innerHTML = '';
 				document.getElementById('messages').appendChild(makeUL(messages));

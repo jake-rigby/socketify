@@ -8,17 +8,13 @@ var express = require('express'),
 	config = {redis:require('./config/redis')},
 	redis = require('redis').createClient(config.redis.port, config.redis.host, {no_ready_check: true});
 
-app.use(express.static(__dirname + './../www')); // lib
-app.use(express.static(__dirname + '/www')); // eg
+app.use(express.static(__dirname + './../www'));
+app.use(express.static(__dirname + '/www'));
 
 io.of('/example').on('connect', function(socket) {
-	socketify.listen(require(__dirname + './../apis/example')(), socket);
+	socketify.listen(require(__dirname + './../apis/message-stack')(), socket);
 })
-/*
-io.of('/redis-readonly').on('connect', function(socket) {
-	socketify.listen(require(__dirname + './../apis/redis-readonly')(redis), socket);
-})
-*/
+
 io.of('/redis').on('connect', function(socket) {
 	socketify.listen(require(__dirname + './../apis/redis')(redis), socket);
 })
