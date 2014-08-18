@@ -1,9 +1,9 @@
 Socketify
 =========
 
-forward a server-side async-style api to a remote socket.io client
+Take some of the boilerplate out of writing a socket.io application
 
-1. Write a server-side api with a standard err/result callback :
+Write a server-side api with a standard err/result callback :
 
 /messages-api.js :
 <pre><code>
@@ -19,7 +19,7 @@ module.exports = function() {
 }
 </pre></code>
 
-2. Connect to a socket.io socket - in this case, a namespaced one
+Connect to a socket.io socket - in this case, a namespaced one
 
 /server.js :
 <pre><code>
@@ -35,3 +35,17 @@ io.of('/messages')..on('connect', function(socket) {
 
 ..
 </code></pre>
+
+Include the client-side library, call the api and listen for the response in the same step
+
+/www/index.html :
+<pre><code>
+
+<html>
+..
+<body>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="js/socketify.js"></script>
+<script type="text/javascript">
+
+</script>
