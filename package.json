@@ -1,0 +1,11 @@
+{
+  "name": "socketify",
+  "version": "0.0.0",
+  "description": "access an asynchronous server api over a socket connection",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jake Rigby",
+  "license": "ISC"
+}

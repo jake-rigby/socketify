@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>socketify-example</title>
+</head>
+<body>
+	hello example
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="js/socketify.js"></script>
+
+	<script type="text/javascript">
+		/*	
+		var socket  = new Socketify('/example.simple',io).socket;
+
+		
+		socket.once('disconnect', function(){
+			console.log('socket disconnected by server');
+		});
+		
+		socket.on('connect',function(data){
+			console.log('socket connected:');
+			
+			// add listener and send event in same step (you might not want to do this)
+			socket.ify('apiMethod1', 'my message', 25, function(err, result) {
+				console.log('1st',err, result);
+			});
+			
+			socket.ify('apiMethod2', 'my message', function(err, result) {
+				console.log('2nd',err, result);
+			});
+		});
+		*/
+		
+		var socket = new Socketify('/example.redis-readonly', io).socket;
+
+		socket.on('connect', function(data) {
+
+			socket.ify('hget', 'myhash', 'mykey', function(err, result) {
+				console.log(err,result);
+			})
+		})
+
+	</script>
+</body>
+</html>
