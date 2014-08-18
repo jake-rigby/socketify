@@ -5,8 +5,8 @@ forward a server-side async-style api to a remote socket.io client
 
 1. Write a server-side api with a standard err/result callback :
 
+/messages-api.js :
 <pre><code>
-/messages-api.js
 
 module.exports = function() {
 	var messages = [];
@@ -19,10 +19,10 @@ module.exports = function() {
 }
 </pre></code>
 
-2. Connect to a socket.io socket - in this case, a namespaced one :
+2. Connect to a socket.io socket - in this case, a namespaced one
 
+/server.js :
 <pre><code>
-/server.js
 
 var socketify = require('socketify');
 var api = require(__dirname + './messages-api')();
