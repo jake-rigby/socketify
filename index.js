@@ -17,3 +17,11 @@ module.exports.listen = function(api, socket) {
 		})(fname);
 	}
 }
+module.exports.public = function() {
+	return require('path').normalize(__dirname+'/www');
+}
+module.exports.apis = {
+	example: require('./apis/example')(),
+	redis: require('./apis/redis'),
+	redis_readonly: require('./apis/redis_readonly')
+}

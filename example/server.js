@@ -12,11 +12,11 @@ app.use(express.static(__dirname + './../www'));
 app.use(express.static(__dirname + '/www'));
 
 io.of('/example').on('connect', function(socket) {
-	socketify.listen(require(__dirname + './../apis/message-stack')(), socket);
+	socketify.listen(socketify.apis.example, socket);
 })
 
 io.of('/redis').on('connect', function(socket) {
-	socketify.listen(require(__dirname + './../apis/redis')(redis), socket);
+	socketify.listen(socketify.apis.redis(redis), socket);
 })
 
 server.listen(1134);
