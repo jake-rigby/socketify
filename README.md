@@ -47,5 +47,11 @@ Include the client-side library, call the api and listen for the response in the
 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 <script type="text/javascript" src="js/socketify.js"></script>
 <script type="text/javascript">
+	
+	var socket = Socketify('/example', io).socket;
+	socket.on('connect', function() {
+	socket.x('message', 'hello socketify', function(err, messages){
+		console.log(messages); // ['hello socketify']
+	}
 
 </script>
