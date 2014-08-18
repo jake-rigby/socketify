@@ -1,0 +1,26 @@
+module.exports = function(namespace, redis, tv4) {
+	return {
+		get : function(classkey, itemkey, cb) {
+			redis.hget(namespace+':'+classkey, itemkey, cb)
+		},
+		getp : function(classkey, itemkey, path, cb) {
+			redis.hget(namespace+':'+classkey, itemkey, function(err,item){
+				try {
+					item = JSON.parse(item);
+					var loc = path.split('.'),
+						p = item;
+					while(loc.length && p) {p = p[loc.shift()];}
+				} catch (e) {
+					err = e;
+				}
+				cb(p ? err : 'no value', p); // <-- redis doesn't generate errors for null queries
+			});
+		},
+		list : function(cb) {
+			redis.smembers(namespace+':classes',cb);
+		},
+		getclass : function(classkey, cb) {
+			redis.hgetall(namespace+':'+classkey,cb);
+		}
+	}
+}
