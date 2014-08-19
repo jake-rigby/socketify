@@ -30,11 +30,7 @@
 		var s1 = Socketify('/example', io).socket;
 
 		s1.on('connect', function() {
-			s1.x('message', null, function(err, messages){
-				console.log(messages);
-				document.getElementById('messages').innerHTML = '';
-				document.getElementById('messages').appendChild(makeUL(messages));
-			})
+			send();
 		})
 
 		function send() {
