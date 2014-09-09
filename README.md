@@ -9,6 +9,8 @@ Write the pure server-side api without thinking about socket.io syntax. Don't wo
 
 *how?*
 
+    npm install socketify
+
 Write a server-side api with a standard err/result callback :
 
 /messages-api.js :
