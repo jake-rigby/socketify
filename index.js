@@ -12,7 +12,12 @@ module.exports.listen = function(api, socket) {
 						socket.emit(name, err, result, id);
 					}
 					api[name].apply(api,arguments)
-				} catch (e) { console.log('[SOCKETIFY]',e,'('+name+')'); }
+				} catch (e) {
+					arguments[arguments.length-1] = function(err, result) {
+						socket.emit(name, e, null, id);
+					}
+					console.log('[SOCKETIFY]',e,'('+name+')'); 
+				}
 			})
 		})(fname);
 	}
