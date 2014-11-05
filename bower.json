@@ -1,0 +1,26 @@
+{
+  "name": "socketify",
+  "main": "www/js/socketify.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jake-rigby/socketify",
+  "authors": [
+    "Jake Rigby <jakewigby@gmail.com>"
+  ],
+  "description": "wrap a socket.io api in a callback syntax",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "socket.io",
+    "syntactic",
+    "sugar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
