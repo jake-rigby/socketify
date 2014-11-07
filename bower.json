@@ -1,0 +1,18 @@
+{
+  "name": "socketify",
+  "main": "www/js/socketify.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jake-rigby/socketify",
+  "authors": [
+    "Jake Rigby <jakewigby@gmail.com>"
+  ],
+  "description": "syntactic callback sugar for socket.io",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
