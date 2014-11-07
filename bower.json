@@ -7,6 +7,14 @@
     "Jake Rigby <jakewigby@gmail.com>"
   ],
   "description": "syntactic callback sugar for socket.io",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "socket.io",
+    "syntactic",
+    "sugar"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
